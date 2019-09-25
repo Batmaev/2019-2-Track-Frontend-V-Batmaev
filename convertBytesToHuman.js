@@ -7,15 +7,17 @@
  */
 
 function convertBytesToHuman(bytes) {
+if(typeof bytes != "number" || ! isInteger(bytes) ||bytes < 0) {
+  return false;
+}
 
   let units = 1;
-  let reduced = bytes;
-  while(reduced > 1023){
-    reduced /= 1024;
+  while(bytes > 1023){
+    bytes /= 1024;
     units *= 1024;
   }
 
-reduced = round(100*reduced)/100;
+bytes = round(100*bytes)/100;
 
   let units_word = 'B';
   switch (units) {
