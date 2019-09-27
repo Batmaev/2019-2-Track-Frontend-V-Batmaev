@@ -16,8 +16,25 @@ correctSentence("greetings, friends") == "Greetings, friends."
 correctSentence("Greetings, friends") == "Greetings, friends."
 correctSentence("Greetings, friends.") == "Greetings, friends."
  */
+function isCorrectEnding(a){
+  if(a === '.' || a === '?' || a === '!'){
+    return true;
+  }
+  else {
+    return false;
+  }
+}
 
 function correctSentence(text) {
-  // your solution goes here
-  return text;
+  if(typeof text != "string") return false;
+  if (text == '') return text;
+
+  let text = text[0].toUpperCase() + text.slice(1);
+  if (isCorrectEnding(text.slice(-1))){
+    return text;
+  }
+  else {
+    return text + '.';
+  }
 }
+
