@@ -6,45 +6,45 @@
  * и класса (например, отрицательные числа)
  */
 
-function convertBytesToHuman(bytes) {
-if(typeof bytes != "number" || ! isInteger(bytes) ||bytes < 0) {
+export function convertBytesToHuman(bytes) {
+if( ! (isNumber(bytes) && Number.isInteger(bytes) && bytes >= 0)) {
   return false;
 }
 
-  let units = 1;
+  let power = 0;
   while(bytes > 1023){
     bytes /= 1024;
-    units *= 1024;
+    power += 1;
   }
 
 bytes = round(100*bytes)/100;
 
   let units_word = 'B';
-  switch (units) {
-    case 1:
+  switch (power) {
+    case 0:
       break;
-    case 1024:
+    case 1:
       units_word = 'KB';
       break;
-    case 1024**2:
+    case 2:
       units_word = 'MB';
       break;
-  case 1024**3:
+  case 3:
       units_word = 'GB';
       break;
-  case 1024**4:
+  case 4:
       units_word = 'TB';
       break;
-  case 1024**5:
+  case 5:
       units_word = 'PB';
       break;
-  case 1024**6:
+  case 6:
     units_word = 'EB';
     break;
-  case 1024**7:
+  case 7:
     units_word = 'ZB';
     break;
-  case 1024**8:
+  case 8:
     units_word = 'YB';
     break;
   default:
@@ -52,5 +52,5 @@ bytes = round(100*bytes)/100;
     break;
   }
 
-  return `{$reduced} {$units_word}`;
+  return bytes + ' ' + units_word;
 }
