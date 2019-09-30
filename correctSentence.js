@@ -25,7 +25,7 @@ function isCorrectEnding(a){
   }
 }
 
-function correctSentence(text) {
+export function correctSentence(text) {
   if(typeof text != "string") return false;
   if (text == '') return text;
 
