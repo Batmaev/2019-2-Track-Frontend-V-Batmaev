@@ -35,7 +35,7 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
   }
  }
 
-function nonUniqueElements(data) {
+export function nonUniqueElements(data) {
   if(Array.isArray(data)){
     return data.filter(isNotUnique);
   }
