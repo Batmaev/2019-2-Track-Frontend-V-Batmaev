@@ -24,7 +24,22 @@ nonUniqueElements([5, 5, 5, 5, 5]) == [5, 5, 5, 5, 5]
 nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
+ function isNotUnique(item, index, array){
+   delete array[index];
+  let found = array.find(a => a === item);
+  if(found === undefined){
+    return false;
+  }
+  else {
+    return true;
+  }
+ }
+
 function nonUniqueElements(data) {
-  // your solution goes here
-  return data
+  if(Array.isArray(data)){
+    return data.filter(isNotUnique);
+  }
+  else {
+    return false;
+  }
 }
