@@ -1,7 +1,10 @@
 {
+  "name": "cra-caddy-docker",
+  "homepage": "https://chexex.github.io/cra-caddy-docker/",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "CI=true react-scripts test --env=jsdom",
+    "test:coverage": "npm test -- --coverage",
     "start": "webpack-dev-server --mode=development --hot",
     "build": "webpack --mode=development"
   },
