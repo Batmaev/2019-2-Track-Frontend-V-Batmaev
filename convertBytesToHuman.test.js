@@ -27,7 +27,8 @@ test('Возвращает корректное значение для чисе
   expect(convertBytesToHuman(0)).toBe("0 B")
   expect(convertBytesToHuman(1)).toBe("1 B")
   expect(convertBytesToHuman(1024)).toBe("1 KB")
-  expect(convertBytesToHuman(2.25*1024**5)).toBe("2.3 PB")
+  expect(convertBytesToHuman(2.252*1024**5)).toBe("2.25 PB")
+  expect(convertBytesToHuman(1048575)).toBe("1 MB")
   expect(convertBytesToHuman(2.5 - 2.5)).toBe("0 B")
 })
 
