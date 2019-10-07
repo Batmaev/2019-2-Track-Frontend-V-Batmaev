@@ -54,6 +54,5 @@ readable_bytes = Math.round(100*readable_bytes)/100
     units_word = 'Extremely large units'
     break
   }
-
   return `${readable_bytes  } ${  units_word}`
 }
