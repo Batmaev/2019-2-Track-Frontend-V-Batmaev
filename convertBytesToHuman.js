@@ -15,7 +15,7 @@ if( ! (typeof bytes == "number" && Number.isInteger(bytes) && bytes >= 0)) {
 let readable_bytes = bytes
 
   let power = 0
-  while(readable_bytes > 1023){
+  while(readable_bytes >= 1023.995){
     readable_bytes /= 1024
     power += 1
   }
