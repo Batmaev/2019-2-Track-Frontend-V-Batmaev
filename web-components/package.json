@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "CI=true react-scripts test --env=jsdom",
-    "test:coverage": "npm test -- --coverage",
+    "test:coverage": "npm test --coverage",
     "start": "webpack-dev-server --mode=development --hot",
     "build": "webpack --mode=development"
   },
