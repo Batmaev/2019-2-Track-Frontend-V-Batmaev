@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /*
 You are given a non-empty list of integers (X).
 
@@ -25,21 +26,18 @@ nonUniqueElements([10, 9, 10, 10, 9, 8]) == [10, 9, 10, 10, 9]
  */
 
  function isNotUnique(item, index, array){
-   delete array[index];
-  let found = array.find(a => a === item);
+   const array_without_current_elem = array.slice()
+   delete array_without_current_elem[index]
+  const found = array_without_current_elem.find(a => a === item)
   if(found === undefined){
-    return false;
+    return false
   }
-  else {
-    return true;
-  }
+    return true
  }
 
 export function nonUniqueElements(data) {
   if(Array.isArray(data)){
-    return data.filter(isNotUnique);
+    return data.filter(isNotUnique)
   }
-  else {
-    return false;
-  }
+    return false
 }

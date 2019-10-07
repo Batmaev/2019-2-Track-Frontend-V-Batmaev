@@ -18,23 +18,19 @@ correctSentence("Greetings, friends.") == "Greetings, friends."
  */
 function isCorrectEnding(a){
   if(a === '.' || a === '?' || a === '!'){
-    return true;
+    return true
   }
-  else {
-    return false;
-  }
+  return false
 }
 
 export function correctSentence(text) {
-  if(typeof text != "string") return false;
-  if (text == '') return text;
+  if(typeof text != "string") return false
+  if (text === '') return text
 
-  let text = text[0].toUpperCase() + text.slice(1);
+  const text2 = text[0].toUpperCase() + text.slice(1)
   if (isCorrectEnding(text.slice(-1))){
-    return text;
+    return text2
   }
-  else {
-    return text + '.';
-  }
+  return `${text2  }.`
 }
 
