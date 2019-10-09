@@ -16,8 +16,21 @@ correctSentence("greetings, friends") == "Greetings, friends."
 correctSentence("Greetings, friends") == "Greetings, friends."
 correctSentence("Greetings, friends.") == "Greetings, friends."
  */
-
-function correctSentence(text) {
-  // your solution goes here
-  return text;
+function isCorrectEnding(a){
+  if(a === '.' || a === '?' || a === '!'){
+    return true
+  }
+  return false
 }
+
+export function correctSentence(text) {
+  if(typeof text != "string") return false
+  if (text === '') return text
+
+  const text2 = text[0].toUpperCase() + text.slice(1)
+  if (isCorrectEnding(text.slice(-1))){
+    return text2
+  }
+  return `${text2  }.`
+}
+
