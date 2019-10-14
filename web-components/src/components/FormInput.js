@@ -5,14 +5,21 @@ template.innerHTML = `
             border: 0;
             outline: none;
             width: calc(100% - 2px);
+            font-size: 20px;
         }
 
         :host {
             display: inline-block;
-            border: 1px solid rgba(25, 25, 25, 0.32);
+            // border: 1px solid rgba(25, 25, 25, 0.32);
+        }
+        button {
+            position: fixed;
+            right: 2px;
         }
     </style>
     <input type="text">
+        <button>Прикрепить</button>
+    </input>
 `;
 
 class FormInput extends HTMLElement {

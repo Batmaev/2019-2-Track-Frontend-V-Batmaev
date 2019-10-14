@@ -5,13 +5,32 @@
     <title>Create message</title>
 </head>
 <body>
-    <!-- <script src="./components/MessageForm.js"></script>
+    <top>
+       <button>Назад</button>
+       <h2>Дженнифер</h2>
+       <button>Меню</button>
+    </top>
     <script>
-        let message_form_nomer_odin = new MessageForm();
-message_form_nomer_odin.in
-    </script> -->
-    <message-form action="/">Hui
-    </message-form>
-    <form-input action="/"></form-input>
+        localStorage.setItem(localStorage.length + 1 + "text", "Example")
+        localStorage.setItem(localStorage.length + 1 + "time", new Date())
+        localStorage.setItem(localStorage.length + 1 + "sender", "Other")
+    </script>
+    <messages></messages>
+    <message-form action="/"></message-form>
+    <script>
+        for(let i = 1; i <= localStorage.length / 3; ++i){
+        let text = localStorage.getItem(i + "text");
+        if(text) {
+        let time = localStorage.getItem(i + "time");
+        let sender = localStorage.getItem(i + "sender");
+        let inserted_element = document.createElement ("existing-message");
+        inserted_element.setAttribute("text",text);
+        inserted_element.setAttribute("time",time)
+        inserted_element.setAttribute("sender",sender);
+        const messages = document.querySelector("messages");
+        messages.insertBefore(inserted_element, messages.firstChild);
+        }
+        }
+    </script>
 </body>
 </html>

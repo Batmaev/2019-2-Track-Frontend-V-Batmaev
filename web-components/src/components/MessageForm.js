@@ -3,10 +3,8 @@ template.innerHTML = `
     <style>
         form-input {
             width: 100%;
-        }
-
-        .result {
-            color: red;
+            position: fixed;
+            bottom: 1px;
         }
 
         input[type=submit] {
@@ -34,7 +32,19 @@ class MessageForm extends HTMLElement {
 
     _onSubmit (event) {
         event.preventDefault();
-        this.$message.innerText = this.$input.value;
+
+        localStorage.setItem(localStorage.length/3 + 1 + "text", `{this.$input.value}`);
+        localStorage.setItem(localStorage.length/3 + 1 + "sender", "I");
+        localStorage.setItem(localStorage.length/3 + 1 + "time", new Date());
+
+        let inserted_element = document.createElement ("existing-message");
+        inserted_element.setAttribute("text",this.$input.value);
+        inserted_element.setAttribute("time", new Date())
+        inserted_element.setAttribute("sender", "I");
+        const messages = document.querySelector("messages");
+        messages.insertBefore(inserted_element, messages.firstChild);
+
+        this.$input.$input.value = ""
     }
 
     _onKeyPress (event) {
