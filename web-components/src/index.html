@@ -11,14 +11,22 @@
        <button>Меню</button>
     </top>
     <script>
-        localStorage.setItem(localStorage.length + 1 + "text", "Example")
-        localStorage.setItem(localStorage.length + 1 + "time", new Date())
-        localStorage.setItem(localStorage.length + 1 + "sender", "Other")
+        
     </script>
     <messages></messages>
     <message-form action="/"></message-form>
     <script>
-        for(let i = 1; i <= localStorage.length / 3; ++i){
+        let number_of_messages = localStorage.getItem("Number of messages")
+        if(!number_of_messages){
+            localStorage.setItem("Number of messages", 1)
+            number_of_messages = 1
+            
+            localStorage.setItem(1 + "text", "Example")
+            localStorage.setItem(1 + "time", new Date())
+            localStorage.setItem(1 + "sender", "Other")
+        }
+
+        for(let i = 1; i <= number_of_messages; ++i){
         let text = localStorage.getItem(i + "text");
         if(text) {
         let time = localStorage.getItem(i + "time");

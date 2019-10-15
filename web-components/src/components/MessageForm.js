@@ -33,9 +33,17 @@ class MessageForm extends HTMLElement {
     _onSubmit (event) {
         event.preventDefault();
 
-        localStorage.setItem(Math.floor(localStorage.length/3) + 1 + "text", this.$input.value);
-        localStorage.setItem(Math.floor(localStorage.length/3) + 1 + "sender", "I");
-        localStorage.setItem(Math.floor(localStorage.length/3) + "time", new Date());
+        let number_of_messages = localStorage.getItem("Number of messages")
+        if(!number_of_messages){
+            localStorage.setItem("Number of messages", 1)
+            number_of_messages = 1
+        }
+
+        ++number_of_messages
+        localStorage.setItem("Number of messages", number_of_messages)
+        localStorage.setItem(number_of_messages + "text", this.$input.value);
+        localStorage.setItem(number_of_messages + "sender", "I");
+        localStorage.setItem(number_of_messages+ "time", new Date());
 
         let inserted_element = document.createElement ("existing-message");
         inserted_element.setAttribute("text",this.$input.value);
