@@ -24,7 +24,6 @@ class MessageForm extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$form = this._shadowRoot.querySelector('form');
         this.$input = this._shadowRoot.querySelector('form-input');
-        this.$message = this._shadowRoot.querySelector('.result');
 
         this.$form.addEventListener('submit', this._onSubmit.bind(this));
         this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
@@ -36,14 +35,14 @@ class MessageForm extends HTMLElement {
         let number_of_messages = localStorage.getItem("Number of messages")
         if(!number_of_messages){
             localStorage.setItem("Number of messages", 1)
-            number_of_messages = 1
+            number_of_messages = 0
         }
 
         ++number_of_messages
         localStorage.setItem("Number of messages", number_of_messages)
         localStorage.setItem(number_of_messages + "text", this.$input.value);
         localStorage.setItem(number_of_messages + "sender", "I");
-        localStorage.setItem(number_of_messages+ "time", new Date());
+        localStorage.setItem(number_of_messages + "time", new Date());
 
         let inserted_element = document.createElement ("existing-message");
         inserted_element.setAttribute("text",this.$input.value);
