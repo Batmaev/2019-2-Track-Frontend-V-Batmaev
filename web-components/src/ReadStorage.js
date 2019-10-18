@@ -1,23 +1,17 @@
-        let number_of_messages = localStorage.getItem("Number of messages")
-        if(!number_of_messages){
-            localStorage.setItem("Number of messages", 1)
-            number_of_messages = 1
+let number_of_messages = localStorage.getItem("Number of messages")
+const messages = document.querySelector("messages");
 
-            localStorage.setItem(1 + "text", "Example")
-            localStorage.setItem(1 + "time", new Date())
-            localStorage.setItem(1 + "sender", "Other")
-        }
+if(number_of_messages == 0){
+    localStorage.setItem("Number of messages", 1)
+    number_of_messages = 1;
+    let example_message = document.createElement ("existing-message");
+    example_message.setAttribute("text", "example");
+    example_message.setAttribute("time", new Date());
+    example_message.setAttribute("sender", "other");
+    localStorage.setItem("1message", example_message.outerHTML);
+}
 
-        for(let i = 1; i <= number_of_messages; ++i){
-        let text = localStorage.getItem(i + "text");
-        if(text) {
-        let time = localStorage.getItem(i + "time");
-        let sender = localStorage.getItem(i + "sender");
-        let inserted_element = document.createElement ("existing-message");
-        inserted_element.setAttribute("text",text);
-        inserted_element.setAttribute("time",time)
-        inserted_element.setAttribute("sender",sender);
-        const messages = document.querySelector("messages");
-        messages.insertBefore(inserted_element, messages.firstChild);
-        }
-        }
+for(let i = 1; i <= number_of_messages; ++i){
+   const one_message = localStorage.getItem(i + "message");
+    messages.insertAdjacentHTML("afterbegin", one_message)
+}
