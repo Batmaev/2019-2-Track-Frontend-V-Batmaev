@@ -1,7 +1,7 @@
 let number_of_messages = localStorage.getItem("Number of messages")
 const messages = document.querySelector("messages");
 
-if(number_of_messages == 0){
+if(!number_of_messages){
     localStorage.setItem("Number of messages", 1)
     number_of_messages = 1;
     let example_message = document.createElement ("existing-message");
