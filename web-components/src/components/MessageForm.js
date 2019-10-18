@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
@@ -38,13 +39,9 @@ class MessageForm extends HTMLElement {
             number_of_messages = 0
         }
 
-        ++number_of_messages
-        localStorage.setItem("Number of messages", number_of_messages)
-        localStorage.setItem(number_of_messages + "text", this.$input.value);
-        localStorage.setItem(number_of_messages + "sender", "I");
-        localStorage.setItem(number_of_messages + "time", new Date());
-
-        let inserted_element = document.createElement ("existing-message");
+        ++number_of_messages;
+    
+        const inserted_element = document.createElement ("existing-message");
         inserted_element.setAttribute("text",this.$input.value);
         inserted_element.setAttribute("time", new Date())
         inserted_element.setAttribute("sender", "I");
@@ -52,6 +49,9 @@ class MessageForm extends HTMLElement {
         messages.insertBefore(inserted_element, messages.firstChild);
 
         this.$input.$input.value = ""
+
+        localStorage.setItem("Number of messages", number_of_messages)
+        localStorage.setItem(number_of_messages + "message", inserted_element.outerHTML);
     }
 
     _onKeyPress (event) {
