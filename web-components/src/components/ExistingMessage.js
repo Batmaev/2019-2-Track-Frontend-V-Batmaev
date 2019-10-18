@@ -24,9 +24,14 @@ class ExistingMessage extends HTMLElement {
         this.shadowRoot.getElementById("text in message").innerText = this.getAttribute("text")
         this.shadowRoot.getElementById("sending time").innerText = this.getAttribute("time")
 
-        if(this.getAttribute("sender") == "I"){
-        this.shadowRoot.querySelector("style").insertAdjacentHTML("afterbegin", ":host {align-self: flex-end;}")
+        if(this.getAttribute("sender") === "I"){
+            const styles = this.shadowRoot.querySelector("style")
+            styles.insertAdjacentHTML("afterbegin", `
+                :host {
+                    align-self: flex-end;
+                }
+            `)
+        }
     }
-}
 }
 customElements.define('existing-message', ExistingMessage)

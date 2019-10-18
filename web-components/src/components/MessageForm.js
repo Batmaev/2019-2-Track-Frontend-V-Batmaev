@@ -51,7 +51,7 @@ class MessageForm extends HTMLElement {
         this.$input.$input.value = ""
 
         localStorage.setItem("Number of messages", number_of_messages)
-        localStorage.setItem(number_of_messages + "message", inserted_element.outerHTML);
+        localStorage.setItem(`${number_of_messages  }message`, inserted_element.outerHTML);
     }
 
     _onKeyPress (event) {
