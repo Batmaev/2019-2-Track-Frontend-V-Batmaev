@@ -46,3 +46,10 @@ existing-message {
     border-radius: 10px;
     background-color: white;
 }
+.sent_by_me {
+    align-self: flex-end;
+}
+
+/* chat-box {
+    position: relative;
+} */

@@ -45,6 +45,7 @@ class MessageForm extends HTMLElement {
         inserted_element.setAttribute("text",this.$input.value);
         inserted_element.setAttribute("time", new Date())
         inserted_element.setAttribute("sender", "I");
+        inserted_element.setAttribute("class", "sent_by_me");
         const messages = document.querySelector("messages");
         messages.insertBefore(inserted_element, messages.firstChild);
 
