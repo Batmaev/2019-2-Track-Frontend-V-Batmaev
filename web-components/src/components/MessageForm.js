@@ -33,13 +33,13 @@ class MessageForm extends HTMLElement {
     _onSubmit (event) {
         event.preventDefault();
 
-        let number_of_messages = localStorage.getItem("Number of messages")
-        if(!number_of_messages){
-            localStorage.setItem("Number of messages", 1)
-            number_of_messages = 0
-        }
+        // let number_of_messages = localStorage.getItem("Number of messages")
+        // if(!number_of_messages){
+        //     localStorage.setItem("Number of messages", 1)
+        //     number_of_messages = 0
+        // }
 
-        ++number_of_messages;
+        // ++number_of_messages;
     
         const inserted_element = document.createElement ("existing-message");
         inserted_element.setAttribute("text",this.$input.value);
@@ -51,8 +51,8 @@ class MessageForm extends HTMLElement {
 
         this.$input.$input.value = ""
 
-        localStorage.setItem("Number of messages", number_of_messages)
-        localStorage.setItem(`${number_of_messages  }message`, inserted_element.outerHTML);
+        // localStorage.setItem("Number of messages", number_of_messages)
+        localStorage.setItem(`everything`, messages.innerHTML);
     }
 
     _onKeyPress (event) {
