@@ -32,27 +32,21 @@ class MessageForm extends HTMLElement {
 
     _onSubmit (event) {
         event.preventDefault();
+        if(this.$input.value != 0){
+            const inserted_element = document.createElement ("existing-message");
+            inserted_element.setAttribute("text",this.$input.value);
+            inserted_element.setAttribute("time", new Date())
+            inserted_element.setAttribute("sender", "I");
+            inserted_element.setAttribute("class", "sent_by_me");
+            const messages = document.querySelector("messages");
+            messages.insertBefore(inserted_element, messages.firstChild);
 
-        // let number_of_messages = localStorage.getItem("Number of messages")
-        // if(!number_of_messages){
-        //     localStorage.setItem("Number of messages", 1)
-        //     number_of_messages = 0
-        // }
+            this.$input.$input.value = ""
 
-        // ++number_of_messages;
-    
-        const inserted_element = document.createElement ("existing-message");
-        inserted_element.setAttribute("text",this.$input.value);
-        inserted_element.setAttribute("time", new Date())
-        inserted_element.setAttribute("sender", "I");
-        inserted_element.setAttribute("class", "sent_by_me");
-        const messages = document.querySelector("messages");
-        messages.insertBefore(inserted_element, messages.firstChild);
+            localStorage.setItem(`everything`, messages.innerHTML);
 
-        this.$input.$input.value = ""
-
-        // localStorage.setItem("Number of messages", number_of_messages)
-        localStorage.setItem(`everything`, messages.innerHTML);
+            inserted_element.scrollIntoView(true);
+        }
     }
 
     _onKeyPress (event) {

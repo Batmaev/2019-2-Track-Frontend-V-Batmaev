@@ -12,3 +12,5 @@ if(!everything || everything == 0){
 }
 
 messages.innerHTML = everything;
+
+window.scrollTo(0, messages.scrollHeight);

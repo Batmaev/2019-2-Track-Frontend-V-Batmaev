@@ -32,10 +32,11 @@ top {
 
 messages {
     margin-top: 5px;
-    margin-bottom: 60 px;
+    margin-bottom: 30px;
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
+    overflow: auto;
 }
 
 existing-message {
