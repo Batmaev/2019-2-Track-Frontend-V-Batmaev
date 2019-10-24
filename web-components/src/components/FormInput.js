@@ -5,21 +5,28 @@ template.innerHTML = `
             border: 0;
             outline: none;
             width: calc(100% - 2px);
+            font-size: 20px;
         }
 
         :host {
             display: inline-block;
-            border: 1px solid rgba(25, 25, 25, 0.32);
+            // border: 1px solid rgba(25, 25, 25, 0.32);
+        }
+        button {
+            position: fixed;
+            right: 2px;
         }
     </style>
     <input type="text">
+        <button>Прикрепить</button>
+    </input>
 `;
 
 class FormInput extends HTMLElement {
     constructor () {
-        super();
-        this._shadowRoot = this.attachShadow({ mode: 'open' });
-        this._shadowRoot.appendChild(template.content.cloneNode(true));
+        super()
+        this.shadowRoot = this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
 
         this.$input = this.shadowRoot.querySelector('input');
     }
@@ -33,8 +40,8 @@ class FormInput extends HTMLElement {
     }
 
     get value() {
-        return this.$input.value;
+        return this.$input.value
     }
 }
 
-customElements.define('form-input', FormInput);
+customElements.define('form-input', FormInput)

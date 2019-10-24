@@ -1,10 +1,7 @@
 {
-  "name": "cra-caddy-docker",
-  "homepage": "https://chexex.github.io/cra-caddy-docker/",
   "private": true,
   "scripts": {
-    "test": "CI=true react-scripts test --env=jsdom",
-    "test:coverage": "npm test --coverage",
+    "test": "npm run eslint",
     "start": "webpack-dev-server --mode=development --hot",
     "build": "webpack --mode=development"
   },
@@ -20,6 +17,9 @@
     "style-loader": "^1.0.0",
     "webpack": "^4.41.0",
     "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.1"
+    "webpack-dev-server": "^3.8.2"
+  },
+  "dependencies": {
+    "eslint": "^6.5.1"
   }
 }

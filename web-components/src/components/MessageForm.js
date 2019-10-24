@@ -1,12 +1,11 @@
+/* eslint-disable camelcase */
 const template = document.createElement('template');
 template.innerHTML = `
     <style>
         form-input {
             width: 100%;
-        }
-
-        .result {
-            color: red;
+            position: fixed;
+            bottom: 1px;
         }
 
         input[type=submit] {
@@ -15,7 +14,7 @@ template.innerHTML = `
     </style>
     <form>
         <div class="result"></div>
-        <form-input name="message-text" placeholder="Введите сообщеине"></form-input>
+        <form-input name="message-text" placeholder="Введите сообщение"></form-input>
     </form>
 `;
 
@@ -26,7 +25,6 @@ class MessageForm extends HTMLElement {
         this._shadowRoot.appendChild(template.content.cloneNode(true));
         this.$form = this._shadowRoot.querySelector('form');
         this.$input = this._shadowRoot.querySelector('form-input');
-        this.$message = this._shadowRoot.querySelector('.result');
 
         this.$form.addEventListener('submit', this._onSubmit.bind(this));
         this.$form.addEventListener('keypress', this._onKeyPress.bind(this));
@@ -34,7 +32,21 @@ class MessageForm extends HTMLElement {
 
     _onSubmit (event) {
         event.preventDefault();
-        this.$message.innerText = this.$input.value;
+        if(this.$input.value != 0){
+            const inserted_element = document.createElement ("existing-message");
+            inserted_element.setAttribute("text",this.$input.value);
+            inserted_element.setAttribute("time", new Date())
+            inserted_element.setAttribute("sender", "I");
+            inserted_element.setAttribute("class", "sent_by_me");
+            const messages = document.querySelector("messages");
+            messages.insertBefore(inserted_element, messages.firstChild);
+
+            this.$input.$input.value = ""
+
+            localStorage.setItem(`everything`, messages.innerHTML);
+
+            inserted_element.scrollIntoView(true);
+        }
     }
 
     _onKeyPress (event) {
