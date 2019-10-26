@@ -50,3 +50,7 @@ existing-message {
 .sent_by_me {
     align-self: flex-end;
 }
+.top-button {
+    width: 35px;
+    height: 35px;
+}

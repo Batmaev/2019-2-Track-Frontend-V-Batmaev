@@ -5,13 +5,18 @@ template.innerHTML = `
          position: fixed;
          bottom: 50px;
          right: 50px;
+         width: 40px;
+         height: 40px;
+         padding: 5px;
+         background: white;
+         border-radius: 5px;
         }
    </style>
 
-   <button class="create-chat">Создать чат</button>
+   <img class="create-chat" src="https://image.flaticon.com/icons/svg/1159/1159633.svg">
 
-   <chat-in-chat-list chat_id="1"></chat-in-chat-list>
-   <chat-in-chat-list chat_id="2"></chat-in-chat-list>
+   <chat-in-chat-list chat_id="1" status="sent_and_read"></chat-in-chat-list>
+   <chat-in-chat-list chat_id="2" status="unread"></chat-in-chat-list>
    <chat-in-chat-list chat_id="3"></chat-in-chat-list>
    <chat-in-chat-list chat_id="4"></chat-in-chat-list>
    <chat-in-chat-list chat_id="5"></chat-in-chat-list>

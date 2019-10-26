@@ -34,11 +34,18 @@ template.innerHTML = `
         height: 20px;
     }
     .name {
-        
+        font-weight: bold;
+    }
+    .unread {
+        background-color: blue;
+        border-radius: 50%;
+        color: white;
+        font-size: 10px;
+        text-align: center;
     }
 </style>
 
-    <img class="avatar" src="https://cdn.icon-icons.com/icons2/510/PNG/512/person_icon-icons.com_50075.png"
+    <img class="avatar" src="http://img.greatlove.ru/article/7/9/8/16798.jpeg"
          width="50px" height="50px">
     <div class="name_and_text">
         <div class="name">Смерть</div>
@@ -46,11 +53,12 @@ template.innerHTML = `
     </div>
     <div class="time_and_status">
         <div class="time">15:52</div>
-        <div class="status">
-            <img class="status" src="https://cdn.icon-icons.com/icons2/510/PNG/512/checkmark_icon-icons.com_50429.png">
+        <div>
+            <img class="status" src="https://image.flaticon.com/icons/svg/60/60731.svg">
         </div>
     </div>
 `
+
 class ChatInChatList extends HTMLElement {
     constructor () {
         super()
@@ -76,6 +84,20 @@ class ChatInChatList extends HTMLElement {
         const last_message = this.message_list.firstChild;
         this.text.innerText = last_message.getAttribute("text");
         this.time.innerText = last_message.getAttribute("time");
+
+        const status_attribute = this.getAttribute("status");
+        switch (status_attribute) {
+            case "sent_and_read":
+                this.status.setAttribute("src", "https://image.flaticon.com/icons/svg/60/60727.svg");
+                break;
+            case "unread":
+                this.status.outerHTML = `
+                   <div class="status unread">1</div>
+                `
+               break;
+            default:
+                break;
+        }
     }
     Show_Messages() {
         this.chat_list = document.querySelector("chat-list");
@@ -87,11 +109,11 @@ class ChatInChatList extends HTMLElement {
         this.header.innerText = this.name.innerText;
 
         this.left_button = document.getElementById("left-button");
-        this.left_button.innerText = "Назад"
+        this.left_button.setAttribute("src", "https://image.flaticon.com/icons/svg/271/271220.svg")
         this.left_button.addEventListener('click', this.Show_Dialogs.bind(this));
     }
     Show_Dialogs(){
-        this.left_button.innerText = "Меню";
+        this.left_button.setAttribute("src", "https://image.flaticon.com/icons/svg/149/149187.svg");
         this.left_button.removeEventListener("click", this.Show_Dialogs);
         this.message_list.setAttribute("style", "display: none;");
         this.chat_list.removeAttribute("style");
