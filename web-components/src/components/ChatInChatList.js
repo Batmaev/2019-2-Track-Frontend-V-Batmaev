@@ -62,21 +62,27 @@ class ChatInChatList extends HTMLElement {
         this.name = this.shadowRoot.querySelector('.name');
         this.status = this.shadowRoot.querySelector('.name');
 
-        this.addEventListener("click", this.Load_Messages);
+        this.addEventListener("click", this.Show_Messages);
     }
     connectedCallback() {
         this.chat_id = this.getAttribute("chat_id");
+        this.name.innerText = `Чат Номер ${this.chat_id}`;
+        this.message_list = document.createElement("message-list");
+        this.message_list.setAttribute("style", "display : none;");
+        this.message_list.setAttribute("chat_id", this.chat_id);
+        document.body.insertAdjacentElement("beforeend", this.message_list);
+        const last_message = this.message_list.firstChild;
+        this.text.innerText = last_message.getAttribute("text");
     }
-    Load_Messages() {
+    Show_Messages() {
         const chat_list = document.querySelector("chat-list");
         chat_list.setAttribute("style", "display : none;");
 
-        const message_list = document.createElement("message-list");
-        message_list.setAttribute("chat_id", this.chat_id);
-        document.body.insertAdjacentElement("beforeend" ,message_list);
+        // const message_list = document.createElement("message-list");
+        // message_list.setAttribute("chat_id", this.chat_id);
+        // document.body.insertAdjacentElement("beforeend", message_list);
 
-        this.setAttribute("style", "display : none;");
-        message_list.removeAttribute("style");
+        this.message_list.removeAttribute("style");
     }
 
 }
