@@ -50,9 +50,3 @@ existing-message {
 .sent_by_me {
     align-self: flex-end;
 }
-
-.create-chat {
-    position: fixed;
-    bottom: 50px;
-    right: 50px;
-}

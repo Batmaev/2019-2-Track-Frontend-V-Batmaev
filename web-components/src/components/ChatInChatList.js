@@ -78,7 +78,8 @@ class ChatInChatList extends HTMLElement {
         this.time.innerText = last_message.getAttribute("time");
     }
     Show_Messages() {
-        this.parentElement.setAttribute("style", "display : none;");
+        this.chat_list = document.querySelector("chat-list");
+        this.chat_list.setAttribute("style", "display : none;");
         this.message_list.removeAttribute("style");
         
         const top = document.querySelector("top");
@@ -93,7 +94,7 @@ class ChatInChatList extends HTMLElement {
         this.left_button.innerText = "Меню";
         this.left_button.removeEventListener("click", this.Show_Dialogs);
         this.message_list.setAttribute("style", "display: none;");
-        this.parentElement.removeAttribute("style");
+        this.chat_list.removeAttribute("style");
         this.header.innerText = "Messenger";
         this.connectedCallback();
     }
