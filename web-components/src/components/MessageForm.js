@@ -38,12 +38,12 @@ class MessageForm extends HTMLElement {
             inserted_element.setAttribute("time", new Date())
             inserted_element.setAttribute("sender", "I");
             inserted_element.setAttribute("class", "sent_by_me");
-            const messages = document.querySelector("messages");
+            const messages = document.querySelector("message-list");
             messages.insertBefore(inserted_element, messages.firstChild);
 
             this.$input.$input.value = ""
 
-            localStorage.setItem(`everything`, messages.innerHTML);
+            localStorage.setItem(`everything${this.chat_id}`, messages.innerHTML);
 
             inserted_element.scrollIntoView(true);
         }

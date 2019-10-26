@@ -30,7 +30,7 @@ top {
     width: 100%;
 }
 
-messages {
+message-list {
     margin-top: 5px;
     margin-bottom: 30px;
     display: flex;
@@ -50,7 +50,3 @@ existing-message {
 .sent_by_me {
     align-self: flex-end;
 }
-
-/* chat-box {
-    position: relative;
-} */
