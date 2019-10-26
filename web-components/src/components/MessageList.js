@@ -15,7 +15,8 @@ class MessageList extends HTMLElement {
 
            const time = new Date();
            const hours = time.getHours();
-           const minutes = time.getMinutes();
+           let minutes = time.getMinutes();
+           if(minutes < 10) minutes = `0${  minutes}`;
            example_message.setAttribute("time", `${hours  }:${  minutes}`);
 
            localStorage.setItem(`everything${this.chat_id}`, example_message.outerHTML);
