@@ -78,13 +78,23 @@ class ChatInChatList extends HTMLElement {
         this.time.innerText = last_message.getAttribute("time");
     }
     Show_Messages() {
-        const chat_list = document.querySelector("chat-list");
-        chat_list.setAttribute("style", "display : none;");
+        this.parentElement.setAttribute("style", "display : none;");
         this.message_list.removeAttribute("style");
         
         const top = document.querySelector("top");
         const header = top.querySelector("h2");
         header.innerText = this.name.innerText;
+
+        this.left_button = document.getElementById("left-button");
+        this.left_button.innerText = "Назад"
+        this.left_button.addEventListener('click', this.Show_Dialogs.bind(this));
+    }
+    Show_Dialogs(){
+        this.left_button.innerText = "Меню";
+        this.left_button.removeEventListener("click", this.Show_Dialogs);
+        this.message_list.setAttribute("style", "display: none;");
+        this.parentElement.removeAttribute("style");
+        this.connectedCallback();
     }
 
 }

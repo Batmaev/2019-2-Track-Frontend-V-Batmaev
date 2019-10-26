@@ -43,10 +43,9 @@ class MessageForm extends HTMLElement {
             const minutes = time.getMinutes();
             inserted_element.setAttribute("time", `${hours  }:${  minutes}`);
 
-            const messages = this.parentElement;
-            messages.insertBefore(inserted_element, messages.firstChild);
-            this.chat_id = messages.chat_id
-            localStorage.setItem(`everything${this.chat_id}`, messages.innerHTML);
+            this.parentElement.insertBefore(inserted_element, this.parentElement.firstChild);
+            this.chat_id = this.parentElement.chat_id
+            localStorage.setItem(`everything${this.chat_id}`, this.parentElement.innerHTML);
 
             this.$input.$input.value = ""
             inserted_element.scrollIntoView(true);
