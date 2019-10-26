@@ -5,6 +5,9 @@ template.innerHTML = `
         display: flex; 
         flex-direction: row;
         background-color: white;
+        border-bottom-width: 1px;
+        border-bottom-color: gray;
+        border-bottom-style: solid;
     }
     .avatar {
         border-radius: 50%;
