@@ -35,16 +35,20 @@ class MessageForm extends HTMLElement {
         if(this.$input.value != 0){
             const inserted_element = document.createElement ("existing-message");
             inserted_element.setAttribute("text",this.$input.value);
-            inserted_element.setAttribute("time", new Date())
             inserted_element.setAttribute("sender", "I");
             inserted_element.setAttribute("class", "sent_by_me");
-            const messages = document.querySelector("message-list");
+
+            const time = new Date();
+            const hours = time.getHours();
+            const minutes = time.getMinutes();
+            inserted_element.setAttribute("time", `${hours  }:${  minutes}`);
+
+            const messages = this.parentElement;
             messages.insertBefore(inserted_element, messages.firstChild);
-
-            this.$input.$input.value = ""
-
+            this.chat_id = messages.chat_id
             localStorage.setItem(`everything${this.chat_id}`, messages.innerHTML);
 
+            this.$input.$input.value = ""
             inserted_element.scrollIntoView(true);
         }
     }

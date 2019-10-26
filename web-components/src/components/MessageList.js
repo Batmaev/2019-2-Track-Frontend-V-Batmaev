@@ -5,8 +5,8 @@ template.innerHTML = `
 
 class MessageList extends HTMLElement {
     connectedCallback () {
-       const chat_id = this.getAttribute("chat_id");
-       let everything = localStorage.getItem(`everything${chat_id}`);
+       this.chat_id = this.getAttribute("chat_id");
+       let everything = localStorage.getItem(`everything${this.chat_id}`);
 
        if(everything == null) {
            console.log("wtf")
@@ -14,14 +14,13 @@ class MessageList extends HTMLElement {
            example_message.setAttribute("text", "example");
            example_message.setAttribute("time", new Date());
            example_message.setAttribute("sender", "other");
-           localStorage.setItem(`everything${chat_id}`, example_message.outerHTML);
+           localStorage.setItem(`everything${this.chat_id}`, example_message.outerHTML);
        }
-       everything = localStorage.getItem(`everything${chat_id}`)
+       everything = localStorage.getItem(`everything${this.chat_id}`)
        this.insertAdjacentHTML("afterbegin", everything);
 
        this.insertAdjacentHTML("beforeend",template.innerHTML);
-       this.input = document.querySelector("message-form");
-       this.input.chat_id = chat_id;
+       this.input = this.querySelector("message-form");
 
        window.scrollTo(0, this.scrollHeight);
     }

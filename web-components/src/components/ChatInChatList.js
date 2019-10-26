@@ -77,11 +77,6 @@ class ChatInChatList extends HTMLElement {
     Show_Messages() {
         const chat_list = document.querySelector("chat-list");
         chat_list.setAttribute("style", "display : none;");
-
-        // const message_list = document.createElement("message-list");
-        // message_list.setAttribute("chat_id", this.chat_id);
-        // document.body.insertAdjacentElement("beforeend", message_list);
-
         this.message_list.removeAttribute("style");
     }
 
