@@ -59,20 +59,23 @@ class ChatInChatList extends HTMLElement {
 
         this.name = this.shadowRoot.querySelector('.name');
         this.text = this.shadowRoot.querySelector('.message_text');
-        this.name = this.shadowRoot.querySelector('.name');
-        this.status = this.shadowRoot.querySelector('.name');
+        this.time = this.shadowRoot.querySelector('.time');
+        this.status = this.shadowRoot.querySelector('.status');
 
         this.addEventListener("click", this.Show_Messages);
     }
     connectedCallback() {
         this.chat_id = this.getAttribute("chat_id");
         this.name.innerText = `Чат Номер ${this.chat_id}`;
+
         this.message_list = document.createElement("message-list");
         this.message_list.setAttribute("style", "display : none;");
         this.message_list.setAttribute("chat_id", this.chat_id);
         document.body.insertAdjacentElement("beforeend", this.message_list);
+
         const last_message = this.message_list.firstChild;
         this.text.innerText = last_message.getAttribute("text");
+        this.time.innerText = last_message.getAttribute("time");
     }
     Show_Messages() {
         const chat_list = document.querySelector("chat-list");

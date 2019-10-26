@@ -9,11 +9,15 @@ class MessageList extends HTMLElement {
        let everything = localStorage.getItem(`everything${this.chat_id}`);
 
        if(everything == null) {
-           console.log("wtf")
            const example_message = document.createElement ("existing-message");
            example_message.setAttribute("text", "example");
-           example_message.setAttribute("time", new Date());
            example_message.setAttribute("sender", "other");
+
+           const time = new Date();
+           const hours = time.getHours();
+           const minutes = time.getMinutes();
+           example_message.setAttribute("time", `${hours  }:${  minutes}`);
+
            localStorage.setItem(`everything${this.chat_id}`, example_message.outerHTML);
        }
        everything = localStorage.getItem(`everything${this.chat_id}`)
