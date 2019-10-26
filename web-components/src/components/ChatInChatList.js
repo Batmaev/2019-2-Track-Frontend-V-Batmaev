@@ -82,8 +82,8 @@ class ChatInChatList extends HTMLElement {
         this.message_list.removeAttribute("style");
         
         const top = document.querySelector("top");
-        const header = top.querySelector("h2");
-        header.innerText = this.name.innerText;
+        this.header = top.querySelector("h2");
+        this.header.innerText = this.name.innerText;
 
         this.left_button = document.getElementById("left-button");
         this.left_button.innerText = "Назад"
@@ -94,6 +94,7 @@ class ChatInChatList extends HTMLElement {
         this.left_button.removeEventListener("click", this.Show_Dialogs);
         this.message_list.setAttribute("style", "display: none;");
         this.parentElement.removeAttribute("style");
+        this.header.innerText = "Messenger";
         this.connectedCallback();
     }
 
