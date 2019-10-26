@@ -81,6 +81,10 @@ class ChatInChatList extends HTMLElement {
         const chat_list = document.querySelector("chat-list");
         chat_list.setAttribute("style", "display : none;");
         this.message_list.removeAttribute("style");
+        
+        const top = document.querySelector("top");
+        const header = top.querySelector("h2");
+        header.innerText = this.name.innerText;
     }
 
 }
