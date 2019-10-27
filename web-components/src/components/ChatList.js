@@ -10,10 +10,21 @@ template.innerHTML = `
          background: gray;
          border-radius: 50%;
          box-shadow: 0 0 5px rgba(0,0,0,0.5);
-        }
-        :hover {
+         transition: height 0.5s, width 0.5s, right 0.5s, bottom 0.5s, box-shadow 0.5s, transform 1s;
+       }
+      :hover {
          background: rgb(220,220,255);
-     }
+       }
+      .create-chat:hover {
+         height: 60px;
+         width: 60px;
+         right: 40px;
+         bottom: 40px;
+         box-shadow: 0 0 10px rgba(0,0,0,0.5);
+       }
+       .create-chat:active {
+          transform: rotate(-45deg);
+       }
    </style>
 
    <img class="create-chat" src="./images/pencil.svg">
