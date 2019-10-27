@@ -7,13 +7,12 @@ template.innerHTML = `
          right: 50px;
          width: 40px;
          height: 40px;
-         padding: 5px;
-         background: white;
-         border-radius: 5px;
+         background: gray;
+         border-radius: 50%;
         }
    </style>
 
-   <img class="create-chat" src="https://image.flaticon.com/icons/svg/1159/1159633.svg">
+   <img class="create-chat" src="./images/pencil.svg">
 
    <chat-in-chat-list chat_id="1" status="sent_and_read"></chat-in-chat-list>
    <chat-in-chat-list chat_id="2" status="unread"></chat-in-chat-list>

@@ -24,7 +24,8 @@ top {
     align-items: center;
     justify-content: space-around;
 
-    background: violet;
+    background: #8600b3;
+    color: white;
     position: sticky;
     top: 0px;
     width: 100%;
