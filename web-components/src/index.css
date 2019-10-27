@@ -64,3 +64,6 @@ existing-message {
     height: 40px;
     width: 40px;
 }
+existing-message{
+    animation: none;
+}

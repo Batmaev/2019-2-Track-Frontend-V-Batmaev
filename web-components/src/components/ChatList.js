@@ -48,6 +48,13 @@ class ChatList extends HTMLElement {
        this.create_button.addEventListener("click", this.Create_Chat.bind(this));
        this.num_of_chats = 7;
     }
+    connectedCallback(){
+       for(let k = 7; localStorage.getItem("everything"+k); ++k) {
+          const new_chat = document.createElement("chat-in-chat-list");
+          new_chat.setAttribute("chat_id", k);
+          this.shadowRoot.appendChild(new_chat);
+       }
+    }
     Create_Chat(){
         ++this.num_of_chats;
         const new_chat = document.createElement("chat-in-chat-list");
