@@ -11,10 +11,17 @@ template.innerHTML = `
         input[type=submit] {
             visibility: collapse;
         }
+        .attach {
+            position: fixed;
+            right: 5px;
+            bottom: -7px;
+            height: 40px;
+        }
     </style>
     <form>
         <div class="result"></div>
         <form-input name="message-text" placeholder="Введите сообщение"></form-input>
+        <img src="./images/clip.svg" class="attach">
     </form>
 `;
 

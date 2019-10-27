@@ -6,20 +6,16 @@ template.innerHTML = `
             outline: none;
             width: calc(100% - 2px);
             font-size: 20px;
+            position: fixed;
+            bottom: 0px;
         }
 
         :host {
             display: inline-block;
-            // border: 1px solid rgba(25, 25, 25, 0.32);
-        }
-        button {
-            position: fixed;
-            right: 2px;
         }
     </style>
-    <input type="text">
-        <button>Прикрепить</button>
-    </input>
+
+    <input type="text"></input>
 `;
 
 class FormInput extends HTMLElement {

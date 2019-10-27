@@ -109,11 +109,11 @@ class ChatInChatList extends HTMLElement {
         this.header.innerText = this.name.innerText;
 
         this.left_button = document.getElementById("left-button");
-        this.left_button.setAttribute("src", "https://image.flaticon.com/icons/svg/271/271220.svg")
+        this.left_button.setAttribute("src", "./images/left-arrow.svg")
         this.left_button.addEventListener('click', this.Show_Dialogs.bind(this));
     }
     Show_Dialogs(){
-        this.left_button.setAttribute("src", "https://image.flaticon.com/icons/svg/149/149187.svg");
+        this.left_button.setAttribute("src", "./images/menu-button.svg");
         this.left_button.removeEventListener("click", this.Show_Dialogs);
         this.message_list.setAttribute("style", "display: none;");
         this.chat_list.removeAttribute("style");
