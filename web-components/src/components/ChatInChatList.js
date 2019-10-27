@@ -111,6 +111,8 @@ class ChatInChatList extends HTMLElement {
         this.left_button = document.getElementById("left-button");
         this.left_button.setAttribute("src", "./images/left-arrow.svg")
         this.left_button.addEventListener('click', this.Show_Dialogs.bind(this));
+
+        window.scrollTo(0, this.message_list.scrollHeight)
     }
     Show_Dialogs(){
         this.left_button.setAttribute("src", "./images/menu-button.svg");

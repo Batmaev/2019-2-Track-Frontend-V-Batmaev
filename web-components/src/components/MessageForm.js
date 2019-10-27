@@ -40,24 +40,30 @@ class MessageForm extends HTMLElement {
     _onSubmit (event) {
         event.preventDefault();
         if(this.$input.value != 0 || this.$input.value === "0"){
-            const inserted_element = document.createElement ("existing-message");
-            inserted_element.setAttribute("text",this.$input.value);
-            inserted_element.setAttribute("sender", "I");
-            inserted_element.setAttribute("class", "sent_by_me");
+            this.inserted_element = document.createElement ("existing-message");
+            this.inserted_element.setAttribute("text",this.$input.value);
+            this.inserted_element.setAttribute("sender", "I");
+            this.inserted_element.setAttribute("class", "sent_by_me animate-right");
+            this.inserted_element.addEventListener("animationend", this.deleteAnimation.bind(this));
 
             const time = new Date();
             const hours = time.getHours();
             let minutes = time.getMinutes();
             if(minutes < 10) minutes = `0${  minutes}`;
-            inserted_element.setAttribute("time", `${hours  }:${  minutes}`);
+            this.inserted_element.setAttribute("time", `${hours  }:${  minutes}`);
 
-            this.parentElement.insertBefore(inserted_element, this.parentElement.firstChild);
+            this.parentElement.insertBefore(this.inserted_element, this.parentElement.firstChild);
             this.chat_id = this.parentElement.chat_id
             localStorage.setItem(`everything${this.chat_id}`, this.parentElement.innerHTML);
 
             this.$input.$input.value = ""
-            inserted_element.scrollIntoView(true);
+            this.inserted_element.scrollIntoView(true);
         }
+    }
+
+    deleteAnimation(){
+        this.inserted_element.setAttribute("class", "sent_by_me");
+        localStorage.setItem(`everything${this.chat_id}`, this.parentElement.innerHTML);
     }
 
     _onKeyPress (event) {
