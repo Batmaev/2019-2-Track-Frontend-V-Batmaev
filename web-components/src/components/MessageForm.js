@@ -39,7 +39,7 @@ class MessageForm extends HTMLElement {
 
     _onSubmit (event) {
         event.preventDefault();
-        if(this.$input.value != 0){
+        if(this.$input.value != 0 || this.$input.value === "0"){
             const inserted_element = document.createElement ("existing-message");
             inserted_element.setAttribute("text",this.$input.value);
             inserted_element.setAttribute("sender", "I");

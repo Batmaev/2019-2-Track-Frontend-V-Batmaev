@@ -23,7 +23,7 @@ template.innerHTML = `
          box-shadow: 0 0 10px rgba(0,0,0,0.5);
        }
        .create-chat:active {
-          transform: rotate(-45deg);
+          transform: rotate(-90deg);
        }
    </style>
 
