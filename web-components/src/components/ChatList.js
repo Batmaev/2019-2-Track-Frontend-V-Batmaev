@@ -9,7 +9,11 @@ template.innerHTML = `
          height: 40px;
          background: gray;
          border-radius: 50%;
+         box-shadow: 0 0 5px rgba(0,0,0,0.5);
         }
+        :hover {
+         background: rgb(220,220,255);
+     }
    </style>
 
    <img class="create-chat" src="./images/pencil.svg">

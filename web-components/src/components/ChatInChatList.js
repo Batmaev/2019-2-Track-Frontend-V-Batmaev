@@ -6,7 +6,7 @@ template.innerHTML = `
         flex-direction: row;
         background-color: white;
         border-bottom-width: 1px;
-        border-bottom-color: gray;
+        border-bottom-color: rgb(220,220,255);
         border-bottom-style: solid;
     }
     .avatar {
