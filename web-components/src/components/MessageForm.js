@@ -49,7 +49,9 @@ class MessageForm extends HTMLElement {
             const time = new Date();
             const hours = time.getHours();
             let minutes = time.getMinutes();
-            if(minutes < 10) minutes = `0${  minutes}`;
+            if(minutes < 10) {
+                minutes = `0${  minutes}`;
+            }
             this.inserted_element.setAttribute("time", `${hours  }:${  minutes}`);
 
             this.parentElement.insertBefore(this.inserted_element, this.parentElement.firstChild);
