@@ -72,6 +72,7 @@ class ChatInChatList extends HTMLElement {
 
         this.addEventListener("click", this.ShowMessages)
     }
+
     connectedCallback() {
         this.chat_id = this.getAttribute("chat_id")
         this.name.innerText = `Чат Номер ${this.chat_id}`
@@ -99,6 +100,7 @@ class ChatInChatList extends HTMLElement {
                 break
         }
     }
+
     ShowMessages() {
         this.chat_list = document.querySelector("chat-list")
         this.chat_list.setAttribute("style", "display : none;")
@@ -114,6 +116,7 @@ class ChatInChatList extends HTMLElement {
 
         window.scrollTo(0, this.message_list.scrollHeight)
     }
+
     ShowDialogs(){
         this.left_button.setAttribute("src", "./images/menu-button.svg")
         this.left_button.removeEventListener("click", this.ShowDialogs)
@@ -122,7 +125,6 @@ class ChatInChatList extends HTMLElement {
         this.header.innerText = "Messenger"
         this.connectedCallback()
     }
-
 }
 
 customElements.define('chat-in-chat-list', ChatInChatList)

@@ -47,6 +47,7 @@ class ChatList extends HTMLElement {
        this.create_button = this.shadowRoot.querySelector(".create-chat")
        this.create_button.addEventListener("click", this.CreateChat.bind(this))
     }
+    
     connectedCallback(){
       let k = 7
       while(localStorage.getItem(`everything${k}`)){
@@ -57,13 +58,12 @@ class ChatList extends HTMLElement {
       }
       this.num_of_chats = k - 1
     }
+
     CreateChat(){
         this.num_of_chats += 1
         const newChat = document.createElement("chat-in-chat-list")
         newChat.setAttribute("chat_id", this.num_of_chats)
         this.shadowRoot.appendChild(newChat)
     }
-
-
 }
 customElements.define("chat-list", ChatList)
