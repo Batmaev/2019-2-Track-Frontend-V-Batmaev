@@ -1,14 +1,14 @@
-'use strict';
 
-const path = require('path');
-const CopyPlugin = require('copy-webpack-plugin');
 
-const HTMLWebpackPlugin = require('html-webpack-plugin');
-const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
+const path = require('path')
+const CopyPlugin = require('copy-webpack-plugin')
 
-const SRC_PATH = path.resolve(__dirname, 'src');
-const BUILD_PATH = path.resolve(__dirname, 'build');
+const HTMLWebpackPlugin = require('html-webpack-plugin')
+const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack')
+
+const SRC_PATH = path.resolve(__dirname, 'src')
+const BUILD_PATH = path.resolve(__dirname, 'build')
 
 module.exports = {
     context: SRC_PATH,
@@ -69,4 +69,4 @@ module.exports = {
             { from: 'images', to: 'images' },
           ]),
     ]
-};
+}

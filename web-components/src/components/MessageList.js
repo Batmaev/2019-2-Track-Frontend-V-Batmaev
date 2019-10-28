@@ -9,17 +9,19 @@ class MessageList extends HTMLElement {
        let everything = localStorage.getItem(`everything${this.chat_id}`)
 
        if(everything == null) {
-           const example_message = document.createElement ("existing-message")
-           example_message.setAttribute("text", "example")
-           example_message.setAttribute("sender", "other")
+           const exampleMessage = document.createElement ("existing-message")
+           exampleMessage.setAttribute("text", "example")
+           exampleMessage.setAttribute("sender", "other")
 
            const time = new Date()
            const hours = time.getHours()
            let minutes = time.getMinutes()
-           if(minutes < 10) minutes = `0${  minutes}`
-           example_message.setAttribute("time", `${hours  }:${  minutes}`)
+           if(minutes < 10) {
+                minutes = `0${  minutes}`
+           }
+           exampleMessage.setAttribute("time", `${hours  }:${  minutes}`)
 
-           localStorage.setItem(`everything${this.chat_id}`, example_message.outerHTML)
+           localStorage.setItem(`everything${this.chat_id}`, exampleMessage.outerHTML)
        }
        everything = localStorage.getItem(`everything${this.chat_id}`)
        this.insertAdjacentHTML("afterbegin", everything)

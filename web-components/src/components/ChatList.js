@@ -1,4 +1,4 @@
-const template  = document.createElement("template");
+const template  = document.createElement("template")
 template.innerHTML = `
    <style>
       .create-chat {
@@ -40,30 +40,30 @@ template.innerHTML = `
 
 class ChatList extends HTMLElement {
     constructor(){
-       super();
-       this.shadowRoot = this.attachShadow({ mode: 'open' });
-       this.shadowRoot.appendChild(template.content.cloneNode(true));
+       super()
+       this.shadowRoot = this.attachShadow({ mode: 'open' })
+       this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-       this.create_button = this.shadowRoot.querySelector(".create-chat");
-       this.create_button.addEventListener("click", this.Create_Chat.bind(this));
+       this.create_button = this.shadowRoot.querySelector(".create-chat")
+       this.create_button.addEventListener("click", this.CreateChat.bind(this))
     }
     connectedCallback(){
-      let k = 7;
+      let k = 7
       while(localStorage.getItem(`everything${k}`)){
-         const new_chat = document.createElement("chat-in-chat-list");
-         new_chat.setAttribute("chat_id", k);
-         this.shadowRoot.appendChild(new_chat);
-         ++k;
+         const newChat = document.createElement("chat-in-chat-list")
+         newChat.setAttribute("chat_id", k)
+         this.shadowRoot.appendChild(newChat)
+         k += 1
       }
-      this.num_of_chats = k - 1;
+      this.num_of_chats = k - 1
     }
-    Create_Chat(){
-        ++this.num_of_chats;
-        const new_chat = document.createElement("chat-in-chat-list");
-        new_chat.setAttribute("chat_id", this.num_of_chats);
-        this.shadowRoot.appendChild(new_chat);
+    CreateChat(){
+        this.num_of_chats += 1
+        const newChat = document.createElement("chat-in-chat-list")
+        newChat.setAttribute("chat_id", this.num_of_chats)
+        this.shadowRoot.appendChild(newChat)
     }
 
 
 }
-customElements.define("chat-list", ChatList);
+customElements.define("chat-list", ChatList)
