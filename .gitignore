@@ -150,5 +150,4 @@ flow-typed/
 docs/_book/
 jest_*/
 .jscpd/
-web-components/src/chats.html
 package-lock.json
