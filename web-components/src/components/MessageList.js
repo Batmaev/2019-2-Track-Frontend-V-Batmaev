@@ -26,8 +26,6 @@ class MessageList extends HTMLElement {
 
        this.insertAdjacentHTML("beforeend",template.innerHTML)
        this.input = this.querySelector("message-form")
-
-    //    window.scrollTo(0, this.scrollHeight)
     }
 }
 
