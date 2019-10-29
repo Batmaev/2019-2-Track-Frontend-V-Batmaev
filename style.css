@@ -1,0 +1,82 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: rgb(220, 220, 260);
+    color: #333;
+    font-size: 15px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 20px;
+    overflow-x: hidden;
+}
+
+top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #8600b3;
+    color: white;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+}
+
+message-list {
+    margin-top: 5px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+existing-message {
+    border: 0px solid black;
+    width: 75%;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+}
+.sent_by_me {
+    align-self: flex-end;
+}
+.top-button {
+    width: 35px;
+    height: 35px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 5x;
+    margin-bottom: 5px;
+    transition: height 0.5s, width 0.5s;
+}
+.top-button:hover {
+    height: 40px;
+    width: 40px;
+}
+.animate-right {
+    animation-name: stupid-right-animation;
+    animation-duration: 0.3s;
+}
+@keyframes stupid-right-animation {
+    from {
+        opacity: 0.5;
+        margin-right: -100px;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
