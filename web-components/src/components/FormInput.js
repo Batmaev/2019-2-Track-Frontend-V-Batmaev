@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement('template')
 template.innerHTML = `
     <style>
         input {
@@ -6,37 +6,33 @@ template.innerHTML = `
             outline: none;
             width: calc(100% - 2px);
             font-size: 20px;
+            position: fixed;
+            bottom: 0px;
         }
 
         :host {
             display: inline-block;
-            // border: 1px solid rgba(25, 25, 25, 0.32);
-        }
-        button {
-            position: fixed;
-            right: 2px;
         }
     </style>
-    <input type="text">
-        <button>Прикрепить</button>
-    </input>
-`;
+
+    <input type="text"></input>
+`
 
 class FormInput extends HTMLElement {
     constructor () {
         super()
-        this.shadowRoot = this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.shadowRoot = this.attachShadow({ mode: 'open' })
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
 
-        this.$input = this.shadowRoot.querySelector('input');
+        this.$input = this.shadowRoot.querySelector('input')
     }
 
     static get observedAttributes() {
-        return ['name', 'value', 'placeholder', 'disabled'];
+        return ['name', 'value', 'placeholder', 'disabled']
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        this.$input.setAttribute(name, newValue);
+        this.$input.setAttribute(name, newValue)
     }
 
     get value() {

@@ -20,6 +20,7 @@ class ExistingMessage extends HTMLElement {
         this.shadowRoot = this.attachShadow({ mode: 'open' })
         this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
+    
     connectedCallback () {
         this.shadowRoot.getElementById("text_in_message").innerText = this.getAttribute("text")
         this.shadowRoot.getElementById("sending_time").innerText = this.getAttribute("time")

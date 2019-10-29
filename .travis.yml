@@ -6,7 +6,7 @@ before_install:
   - cd web-components
 
 script:
-  #- npm run test
+  - npm run test
   - npm run build
 
 deploy:
@@ -18,4 +18,4 @@ deploy:
     branch:
       - master
       - devel
-      - hw_2
+      - hw_3
